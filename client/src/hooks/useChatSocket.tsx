@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, RefObject } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 
 interface UseChatSocketParams {
   roomId: string;
@@ -11,14 +11,14 @@ interface UseChatSocketReturn {
   isConnected: boolean;
 }
 
-export function useChatSocket({ 
-  roomId, 
-  username, 
-  onMessage 
+export function useChatSocket({
+  roomId,
+  username,
+  onMessage
 }: UseChatSocketParams): UseChatSocketReturn {
   const socketRef = useRef<WebSocket | null>(null);
   const [isConnected, setIsConnected] = useState<boolean>(false);
-  
+
   // Keep latest onMessage in a ref
   const onMessageRef = useRef(onMessage);
   useEffect(() => {

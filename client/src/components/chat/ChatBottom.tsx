@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, RefObject } from "react";
+import { useState, useRef, useEffect, type RefObject } from "react";
 import sendIcon from "../../assets/send.svg";
 
 interface ChatBottomProps {
